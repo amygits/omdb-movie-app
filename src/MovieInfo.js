@@ -4,7 +4,7 @@ import Movies from './Movies';
 
 function MovieInfo() {
     const [movies, setMovies] = useState([]);
-    const [query, setQuery] = useState("");""
+    const [query, setQuery] = useState("");
     const [showMovies, setShowMovies] = useState(false);
 
     function handleSubmit(e) {
