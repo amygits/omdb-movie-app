@@ -1,13 +1,14 @@
 .movies {
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 table {
+    width: 100%;
     border-collapse: collapse;
 }
 
 td, th {
-    border: 1px solid #999;
+    border: 2px solid black;
     padding: 0.5rem;
     text-align: left;
 }

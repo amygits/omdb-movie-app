@@ -26,7 +26,6 @@ function MovieInfo() {
     return(
         <div className="movieinfo">
             <form onSubmit={handleSubmit}>
-                <label htmlFor="queryInput">Search Title:</label>
                 <input
                     id="queryInput"
                     value={query}
@@ -34,7 +33,7 @@ function MovieInfo() {
                     onChange={e => setQuery(e.target.value)}/>
                 <button className="search">Search</button>
             </form>
-            {showMovies ? <Movies movies={movies}></Movies> : <></>}
+             {showMovies ? <Movies movies={movies}></Movies> : <></>}
         </div>
     )
 }

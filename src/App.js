@@ -16,9 +16,8 @@ function App() {
       <body className="App-background">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Enter a movie title to search:
-          <MovieInfo></MovieInfo>
         </p>
+        <MovieInfo></MovieInfo>
 
         </body>
     </div>
