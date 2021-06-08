@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import logo from './flixLogo.png';
 import './App.css';
 import Header from './Header';
 import MovieInfo  from './MovieInfo';

@@ -3,7 +3,7 @@
     min-height: 18vh;
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
     justify-content: center;
     font-size: 30px;
     color: white;
