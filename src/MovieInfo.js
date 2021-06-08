@@ -4,7 +4,7 @@ import Movies from './Movies';
 
 function MovieInfo() {
     const [movies, setMovies] = useState([]);
-    const [query, setQuery] = useState("");
+    const [query, setQuery] = useState("");""
     const [showMovies, setShowMovies] = useState(false);
 
     function handleSubmit(e) {
@@ -26,13 +26,13 @@ function MovieInfo() {
     return(
         <div className="movieinfo">
             <form onSubmit={handleSubmit}>
-                <label htmlFor="queryInput">Search Movie Name:</label>
+                <label htmlFor="queryInput">Search Title:</label>
                 <input
                     id="queryInput"
                     value={query}
                     type="text"
                     onChange={e => setQuery(e.target.value)}/>
-                <button className="search">Submit</button>
+                <button className="search">Search</button>
             </form>
             {showMovies ? <Movies movies={movies}></Movies> : <></>}
         </div>
