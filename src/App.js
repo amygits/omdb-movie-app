@@ -1,13 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import Header from './Header';
+import ReactDom from 'react-dom';
+import MovieInfo  from './MovieInfo';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <Header title="Movie Search"></Header>
+      <body className="App-background">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Enter a movie title to search:
+          <MovieInfo></MovieInfo>
         </p>
         <a
           className="App-link"
@@ -17,7 +22,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+        </body>
     </div>
   );
 }
