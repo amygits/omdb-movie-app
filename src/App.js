@@ -13,7 +13,8 @@ function App() {
         <title>FlixQ</title>
       </Helmet>
       <Header title="FlixQ"></Header>
-      <body className="App-background">
+      <body className="App-background"><p>
+      </p>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
         </p>

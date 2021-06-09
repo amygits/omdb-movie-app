@@ -17,7 +17,7 @@ function MovieInfo() {
             response = await response.json();
             console.log(response.Search);
             setMovies(response.Search);
-        }
+            }
         fetchMyAPI();
         setShowMovies(true);
         setQuery("");
