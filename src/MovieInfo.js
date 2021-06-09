@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './MovieInfo.css';
 import Movies from './Movies';
+import Pagination from './Pagination';
 
 function MovieInfo() {
     const [movies, setMovies] = useState([]);
@@ -24,7 +25,7 @@ function MovieInfo() {
     }
 
     return(
-        <div className="movieinfo">
+        <div className="movieSearch">
             <form onSubmit={handleSubmit}>
                 <input
                     id="queryInput"
@@ -32,10 +33,17 @@ function MovieInfo() {
                     type="text"
                     onChange={e => setQuery(e.target.value)}/>
                 <button className="search">Search</button>
-            </form>
-             {showMovies ? <Movies movies={movies}></Movies> : <></>}
-        </div>
-    )
+            </form> <p></p>
+                { showMovies ? (
+                <Pagination
+                data = {movies}
+                RenderComponent = {Movies}
+                title = "Results for"
+                pageLimit = {5}
+                dataLimit = {10} />
+                ) : <></> }
+             </div>
+             )
 }
 
 export default MovieInfo;

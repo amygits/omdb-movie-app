@@ -22,7 +22,10 @@ function Movies(props) {
              </div>
          )}
      catch(err) {
-        return <div>Sorry, your title was too popular and attracted too many results.  Please try re-typing or narrowing down your search.</div>
+        return <div>
+            Sorry, your title was too popular and attracted too many results.
+            Please try re-typing or narrowing down your search.
+        </div>
      }
 }
 
