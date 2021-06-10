@@ -57,7 +57,7 @@ function Pagination({ data, RenderComponent, title, pageLimit, dataLimit }) {
           next</button>
          </div>
         </div>
-    );
+    )
 }
 
 export default Pagination;

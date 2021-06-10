@@ -11,18 +11,18 @@ function MovieInfo() {
     function handleSubmit(e) {
         e.preventDefault();
         async function fetchMyAPI() {
-            const searchParam = encodeURIComponent(query);
-            const apiUrl = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${searchParam}&r=json`;
-            console.log(apiUrl);
-            let response = await fetch(apiUrl);
-            response = await response.json();
-            console.log(response.Search);
-            setMovies(response.Search);
-            }
-        fetchMyAPI();
-        setShowMovies(true);
-        setQuery("");
-    }
+           const searchParam = encodeURIComponent(query);
+           const apiUrl = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${searchParam}&r=json`;
+           console.log(apiUrl);
+           let response = await fetch(apiUrl);
+           response = await response.json();
+           console.log(response.Search);
+           setMovies(response.Search);
+        }
+           fetchMyAPI();
+           setShowMovies(true);
+           setQuery("");
+           }
 
     return(
         <div className="movieSearch">
@@ -34,15 +34,10 @@ function MovieInfo() {
                     onChange={e => setQuery(e.target.value)}/>
                 <button className="search">Search</button>
             </form> <p></p>
-                { showMovies ? (<Pagination
-                                 data = {movies}
-                                 RenderComponent = {Movies}
-                                 title = "Search Results:"
-                                 pageLimit = {5}
-                                 dataLimit = {10} />
-                                 ) : <></> }
+            { showMovies ? <Movies movies = {movies}></Movies> : <></>}
              </div>
              )
 }
 
 export default MovieInfo;
+
