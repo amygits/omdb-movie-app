@@ -4,6 +4,7 @@ import { Card } from 'react-bootstrap';
 
 function Movies(props) {
     const movies = props.movies;
+
     try {
      return(
              <div>
@@ -21,6 +22,7 @@ function Movies(props) {
                  })}
              </div>
          )}
+
      catch(err) {
         return <div>
             Sorry, your title was too popular and attracted too many results.

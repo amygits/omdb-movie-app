@@ -34,14 +34,13 @@ function MovieInfo() {
                     onChange={e => setQuery(e.target.value)}/>
                 <button className="search">Search</button>
             </form> <p></p>
-                { showMovies ? (
-                <Pagination
-                data = {movies}
-                RenderComponent = {Movies}
-                title = "Results for"
-                pageLimit = {5}
-                dataLimit = {10} />
-                ) : <></> }
+                { showMovies ? (<Pagination
+                                 data = {movies}
+                                 RenderComponent = {Movies}
+                                 title = "Search Results:"
+                                 pageLimit = {5}
+                                 dataLimit = {10} />
+                                 ) : <></> }
              </div>
              )
 }
