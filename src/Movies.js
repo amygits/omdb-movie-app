@@ -11,22 +11,19 @@ function Movies(props) {
                  {movies.map(movie => {
                      return(
                      <Card style={{ width: '18rem' }}>
-                         <Card.Img variant="top" src={movie.Poster} />
-                         <Card.Body>
-                             <Card.Title>{movie.Title}</Card.Title>
-                             <Card.Text>
-                                 {movie.Year}
-                             </Card.Text>
+                         <Card.Img variant="top" src={movie.Poster}/>
+                         <Card.Header>{movie.Title}</Card.Header>
+                         <Card.Body>Release year: {movie.Year}
                          </Card.Body>
                      </Card>)
                  })}
              </div>
          )}
-
      catch(err) {
         return <div>
-            Sorry, your title was too popular and attracted too many results.
-            Please try re-typing or narrowing down your search.
+                <schbody>
+                    Sorry, your title was too popular and attracted too many results.
+                     Please try re-typing or narrowing down your search. </schbody>
         </div>
      }
 }

@@ -1,12 +1,17 @@
 .movies {
     padding-top: 10px;
+    font-size: 10px;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
 }
-
+schbody {
+    font-style: italic;
+    color: #fff;
+    font-size: 16px;
+}
 td, th {
     border: 2px solid black;
     padding: 0.5rem;

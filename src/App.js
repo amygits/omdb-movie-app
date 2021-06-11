@@ -12,16 +12,13 @@ function App() {
   return (
     <div className="App">
       <Helmet>
-        <title>FlixQ</title>
       </Helmet>
       <Header title=<img src={headerLogo} className="Top-Logo" alt="header logo"/>></Header>
       <body className="App-background">
-      Try searching for a movie!<p></p>
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
+        <p>Try searching for a movie!
         </p>
         <MovieInfo></MovieInfo>
-
         </body>
         <Footer title = "Created by Amy Ma for the Capital Group's consideration">
         </Footer>
