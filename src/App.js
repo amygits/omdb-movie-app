@@ -13,7 +13,9 @@ function App() {
     <div className="App">
       <Helmet><title>FlixQ</title>
       </Helmet>
-      <Header title=<img src={headerLogo} className="Top-Logo" alt="header logo"/>></Header>
+      <Header title=
+        <a href = "/">
+        <img src={headerLogo} className="Top-Logo" alt="header logo"/></a>></Header>
       <body className="App-background">
         <img src={logo} className="App-logo" alt="logo" />
         <p>Try searching for a movie!
