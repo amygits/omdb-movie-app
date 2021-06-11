@@ -12,11 +12,10 @@ function Movies(props) {
                      return(
                      <Card
                         bg = 'info'
-                        style={{ width: '18rem' }}>
-                         <Card.Img variant="top" src={movie.Poster}/>
-                         <Card.Header>{movie.Title}</Card.Header>
-                         <Card.Body><Card.Text>Release year: {movie.Year}</Card.Text>
-                         </Card.Body>
+                        style={{ width: '18rem' }}><Card.Header>{movie.Title}</Card.Header>
+                        <Card.Footer><small className="text-muted">Released: {movie.Year}</small></Card.Footer>
+                         <Card.Img variant="top" src={movie.Poster}/><p></p>
+
                      </Card>)
                  })}
              </div>

@@ -14,9 +14,7 @@ function MovieInfo() {
     const [prevPage, setPrevPage] = useState(1);
 
     function handleSubmit(e) {
-
         e.preventDefault();
-
         async function fetchMyAPI() {
            setCurrentPage(1);
            const searchParam = encodeURIComponent(query);
@@ -34,9 +32,10 @@ function MovieInfo() {
             console.log(nextExists);
            }
         }
-           fetchMyAPI();
-           setShowMovies(true);
-           setQuery("");
+        fetchMyAPI();
+        setShowMovies(true);
+        setQuery("");
+
     }
 
     function handleNext() {
@@ -57,12 +56,12 @@ function MovieInfo() {
                            }
                 }
         }
+
         fetchMyAPI();
         setShowMovies(true);
         setPrevPage(currentPage);
         setCurrentPage(nextPage);
         setNextPage(nextPage + 1);
-
 
     }
 
@@ -82,10 +81,11 @@ function MovieInfo() {
                     if (prevPage === 1) setPrevExists(false);
                     }
             }
+
             fetchMyAPI();
             setShowMovies(true);
 
-        }
+    }
 
     return(
         <div className="movieSearch">
@@ -106,7 +106,7 @@ function MovieInfo() {
             <p></p>
 
              </div>
-             )
+    )
 }
 
 export default MovieInfo;
