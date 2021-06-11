@@ -7,10 +7,9 @@ function MovieInfo() {
     const [query, setQuery] = useState("");
     const [qThrow, setQThrow] = useState("");
     const [showMovies, setShowMovies] = useState(false);
-    const [prev, setPrev] = useState(false);
     const [next, setNext] = useState(false);
-    const nextExists = true;
-    const prevExists = true;
+    const [nextExists, setNextExists] = useState(false);
+    const [prevExists, setPrevExists] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [nextPage, setNextPage] = useState(currentPage + 1);
     const [prevPage, setPrevPage] = useState(1);
@@ -30,8 +29,8 @@ function MovieInfo() {
            setMovies(response.Search);
            const apiUrl2 = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${searchParam}&r=json&page=${nextPage}`;
            let response2 = await fetch(apiUrl2);
-           if (response.ok) {
-            nextExists(true);
+           if (response2.ok) {
+            setNextExists(true);
             console.log(nextExists);
            }
         }
@@ -51,6 +50,12 @@ function MovieInfo() {
                 setShowMovies(true);
                 console.log(response.Search);
                 setMovies(response.Search);
+                const apiUrl2 = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${qThrow}&r=json&page=${nextPage}`;
+                           let response2 = await fetch(apiUrl2);
+                           if (response2.ok) {
+                            setPrevExists(true);
+                            console.log(prevExists);
+                           }
                 }
         }
         fetchMyAPI();
@@ -91,7 +96,7 @@ function MovieInfo() {
                     onChange={e => setQuery(e.target.value) }/>
                 <button className="search">Search</button>
             </form> <p>
-            { prevExists? <button onClick = { () => handlePrev()}>Prev</button> : <></> }
+            { prevExists ? <button onClick = { () => handlePrev()}>Prev</button> : <></> }
             { nextExists ? <button onClick = { () => handleNext()}>Next</button>  : <></>}
             </p>
             { showMovies  ? <Movies movies = {movies}></Movies> : <></>}
