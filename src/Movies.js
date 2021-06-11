@@ -10,7 +10,9 @@ function Movies(props) {
              <div>
                  {movies.map(movie => {
                      return(
-                     <Card style={{ width: '18rem' }}>
+                     <Card
+                        bg = 'info'
+                        style={{ width: '18rem' }}>
                          <Card.Img variant="top" src={movie.Poster}/>
                          <Card.Header>{movie.Title}</Card.Header>
                          <Card.Body><Card.Text>Release year: {movie.Year}</Card.Text>

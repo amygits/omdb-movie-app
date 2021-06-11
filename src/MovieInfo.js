@@ -21,13 +21,13 @@ function MovieInfo() {
            setCurrentPage(1);
            const searchParam = encodeURIComponent(query);
            setQThrow(searchParam);
-           const apiUrl = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${searchParam}&r=json&page=${currentPage}`;
+           const apiUrl = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${searchParam}&type=movie&r=json&page=${currentPage}`;
            console.log(apiUrl);
            let response = await fetch(apiUrl);
            response = await response.json();
            console.log(response.Search);
            setMovies(response.Search);
-           const apiUrl2 = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${searchParam}&r=json&page=${nextPage}`;
+           const apiUrl2 = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${searchParam}&type=movie&r=json&page=${nextPage}`;
            let response2 = await fetch(apiUrl2);
            if (response2.ok) {
             setNextExists(true);
@@ -40,9 +40,8 @@ function MovieInfo() {
     }
 
     function handleNext() {
-
         async function fetchMyAPI() {
-            const apiUrl = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${qThrow}&r=json&page=${nextPage}`;
+            const apiUrl = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${qThrow}&r=json&type=movie&page=${nextPage}`;
             console.log(apiUrl);
             let response = await fetch(apiUrl);
             if (response.ok) {
@@ -50,7 +49,7 @@ function MovieInfo() {
                 setShowMovies(true);
                 console.log(response.Search);
                 setMovies(response.Search);
-                const apiUrl2 = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${qThrow}&r=json&page=${prevPage}`;
+                const apiUrl2 = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${qThrow}&r=json&type=movie&page=${prevPage}`;
                            let response2 = await fetch(apiUrl2);
                            if (response2.ok) {
                             setPrevExists(true);
@@ -66,9 +65,10 @@ function MovieInfo() {
 
 
     }
-        function handlePrev() {
+
+    function handlePrev() {
             async function fetchMyAPI() {
-                const apiUrl = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${qThrow}&r=json&page=${prevPage}`;
+                const apiUrl = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${qThrow}&r=json&type=movie&page=${prevPage}`;
                 console.log(apiUrl);
                 let response = await fetch(apiUrl);
                 if (response.ok) {
