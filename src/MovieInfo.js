@@ -9,14 +9,16 @@ function MovieInfo() {
     const [showMovies, setShowMovies] = useState(false);
     const [prev, setPrev] = useState(false);
     const [next, setNext] = useState(false);
-    const nextExists = useState(false);
-    const prevExists = useState(false);
+    const nextExists = true;
+    const prevExists = true;
     const [currentPage, setCurrentPage] = useState(1);
     const [nextPage, setNextPage] = useState(currentPage + 1);
     const [prevPage, setPrevPage] = useState(1);
 
     function handleSubmit(e) {
+        setCurrentPage(1);
         e.preventDefault();
+
         async function fetchMyAPI() {
            const searchParam = encodeURIComponent(query);
            setQThrow(searchParam);
@@ -74,7 +76,7 @@ function MovieInfo() {
             fetchMyAPI();
             setShowMovies(true);
 
-            setPrevPage(prevPage - 1);
+            if (prevPage - 1 > 0) setPrevPage(prevPage - 1);
             setCurrentPage(prevPage);
             setNextPage(currentPage + 1);
         }
@@ -86,12 +88,17 @@ function MovieInfo() {
                     id="queryInput"
                     value={query}
                     type="text"
-                    onChange={e => setQuery(e.target.value)}/>
+                    onChange={e => setQuery(e.target.value) }/>
                 <button className="search">Search</button>
-            </form> <p></p>
+            </form> <p>
+            { prevExists? <button onClick = { () => handlePrev()}>Prev</button> : <></> }
+            { nextExists ? <button onClick = { () => handleNext()}>Next</button>  : <></>}
+            </p>
             { showMovies  ? <Movies movies = {movies}></Movies> : <></>}
             { prevExists? <button onClick = { () => handlePrev()}>Prev</button> : <></> }
             { nextExists ? <button onClick = { () => handleNext()}>Next</button>  : <></>}
+            <p></p>
+
              </div>
              )
 }
