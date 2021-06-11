@@ -1,5 +1,5 @@
 import React from 'react';
-import footer from './Footer.css'
+import './Footer.css'
 import FooterLinks from './FooterLinks';
 
 
