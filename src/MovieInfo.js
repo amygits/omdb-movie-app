@@ -7,7 +7,6 @@ function MovieInfo() {
     const [query, setQuery] = useState("");
     const [qThrow, setQThrow] = useState("");
     const [showMovies, setShowMovies] = useState(false);
-    const [next, setNext] = useState(false);
     const [nextExists, setNextExists] = useState(false);
     const [prevExists, setPrevExists] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
@@ -15,10 +14,11 @@ function MovieInfo() {
     const [prevPage, setPrevPage] = useState(1);
 
     function handleSubmit(e) {
-        setCurrentPage(1);
+
         e.preventDefault();
 
         async function fetchMyAPI() {
+           setCurrentPage(1);
            const searchParam = encodeURIComponent(query);
            setQThrow(searchParam);
            const apiUrl = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${searchParam}&r=json&page=${currentPage}`;
@@ -40,17 +40,17 @@ function MovieInfo() {
     }
 
     function handleNext() {
+
         async function fetchMyAPI() {
             const apiUrl = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${qThrow}&r=json&page=${nextPage}`;
             console.log(apiUrl);
             let response = await fetch(apiUrl);
             if (response.ok) {
                 response = await response.json();
-                setNext(true);
                 setShowMovies(true);
                 console.log(response.Search);
                 setMovies(response.Search);
-                const apiUrl2 = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${qThrow}&r=json&page=${nextPage}`;
+                const apiUrl2 = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${qThrow}&r=json&page=${prevPage}`;
                            let response2 = await fetch(apiUrl2);
                            if (response2.ok) {
                             setPrevExists(true);
@@ -64,6 +64,7 @@ function MovieInfo() {
         setCurrentPage(nextPage);
         setNextPage(nextPage + 1);
 
+
     }
         function handlePrev() {
             async function fetchMyAPI() {
@@ -72,18 +73,18 @@ function MovieInfo() {
                 let response = await fetch(apiUrl);
                 if (response.ok) {
                     response = await response.json();
-                    setNext(true);
                     setShowMovies(true);
                     console.log(response.Search);
                     setMovies(response.Search);
+                    setNextPage(prevPage + 1);
+                    setCurrentPage(prevPage);
+                    if (prevPage - 1 > 0) setPrevPage(prevPage - 1);
+                    if (prevPage === 1) setPrevExists(false);
                     }
             }
             fetchMyAPI();
             setShowMovies(true);
 
-            if (prevPage - 1 > 0) setPrevPage(prevPage - 1);
-            setCurrentPage(prevPage);
-            setNextPage(currentPage + 1);
         }
 
     return(
