@@ -13,7 +13,7 @@ function Movies(props) {
                      <Card style={{ width: '18rem' }}>
                          <Card.Img variant="top" src={movie.Poster}/>
                          <Card.Header>{movie.Title}</Card.Header>
-                         <Card.Body>Release year: {movie.Year}
+                         <Card.Body><Card.Text>Release year: {movie.Year}</Card.Text>
                          </Card.Body>
                      </Card>)
                  })}

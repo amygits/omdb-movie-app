@@ -11,7 +11,7 @@ import { Helmet } from 'react-helmet';
 function App() {
   return (
     <div className="App">
-      <Helmet>
+      <Helmet><title>FlixQ</title>
       </Helmet>
       <Header title=<img src={headerLogo} className="Top-Logo" alt="header logo"/>></Header>
       <body className="App-background">
