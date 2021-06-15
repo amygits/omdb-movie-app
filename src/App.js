@@ -18,8 +18,8 @@ function App() {
                 <img src={headerLogo} className="Top-Logo" alt="header logo"/>
             </a> >
         </Header>
-      <body className="App-background">
-        <img src={logo} className="App-logo" alt="logo" />
+      <body className="App-background"><a href = "/ ">
+        <img src={logo} className="App-logo" alt="logo" /></a>
         <p>
             Try searching for a movie!
         </p>
