@@ -13,7 +13,6 @@ function Movies(props) {
                  {movies.map(movie => {
                      return(
                      <Card
-                        bg = 'info'
                         style={{ width: '18rem' }}><Card.Header>{movie.Title}</Card.Header>
                         <Card.Footer><small className="text-muted">Released: {movie.Year}</small></Card.Footer>
                          <Card.Img variant="top" src={movie.Poster}/><p></p>
