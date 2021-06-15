@@ -13,15 +13,18 @@ function App() {
     <div className="App">
       <Helmet><title>FlixQ</title>
       </Helmet>
-      <Header title=
-        <a href = "/">
-        <img src={headerLogo} className="Top-Logo" alt="header logo"/></a>></Header>
+      <Header title =
+            <a href = "/">
+                <img src={headerLogo} className="Top-Logo" alt="header logo"/>
+            </a> >
+        </Header>
       <body className="App-background">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>Try searching for a movie!
+        <p>
+            Try searching for a movie!
         </p>
-        <MovieInfo></MovieInfo>
-        </body>
+            <MovieInfo></MovieInfo>
+      </body>
         <Footer title = "Created by Amy Ma for the Capital Group's consideration">
         </Footer>
     </div>

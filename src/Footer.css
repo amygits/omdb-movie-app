@@ -1,4 +1,9 @@
 .footer {
+        position: fixed;
+        left: 0px;
+        bottom: 0px;
+        width: 100%;
+        z-index: 1000;
         background-color: #253246;
         min-height: 8vh;
         display: flex;
