@@ -2,12 +2,14 @@ import React from 'react';
 import './Movies.css';
 import { Card } from 'react-bootstrap';
 
+
+
 function Movies(props) {
     const movies = props.movies;
 
     try {
      return(
-             <div>
+             <div className ="Movielist">
                  {movies.map(movie => {
                      return(
                      <Card
@@ -21,10 +23,9 @@ function Movies(props) {
              </div>
          )}
      catch(err) {
-        return <div>
-                <schbody>
+        return <div className = "Schbody">
                     Sorry, your title was too popular and attracted too many results.
-                     Please try re-typing or narrowing down your search. </schbody>
+                     Please try re-typing or narrowing down your search.
         </div>
      }
 }
