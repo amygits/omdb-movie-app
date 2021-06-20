@@ -13,7 +13,7 @@ function Movies(props) {
                  {movies.map(movie => {
                      return(
                      <Card
-                        style={{ width: '18rem' }}><Card.Header><Card.Link href="#" onClick={handleLinkClick}>{movie.Title}</Card.Link></Card.Header>
+                        style={{ width: '18rem' }}><Card.Header>{movie.Title}</Card.Header>
                         <Card.Footer><small className="text-muted">Released: {movie.Year}</small></Card.Footer>
                          <Card.Img variant="top" src={movie.Poster}/><p></p>
                      </Card>)
@@ -26,11 +26,6 @@ function Movies(props) {
                      Please try re-typing or narrowing down your search.
         </div>
      }
-
-   function handleLinkClick(e) {
-    e.preventDefault();
-    console.log("re-direct to be implemented");
-    }
 }
 
 export default Movies;
