@@ -17,14 +17,15 @@ form {
 }
 
 .search {
-    background-color: #008140;
-    padding: 10px 10px;
+    background-color: #253246;
+    padding: 12px 11px;
     height: 10px;
     color: white;
-    border-radius: 12px;
+    border-radius: 20px;
     display: block;
     line-height: 0px;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 label {
@@ -34,7 +35,8 @@ label {
 
 #queryInput {
     box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
-    border-radius: 15px;
+    border-radius: 20px;
     padding: 10px;
     margin: 10px;
+    width: 185px;
 }
