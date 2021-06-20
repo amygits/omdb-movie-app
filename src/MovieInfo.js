@@ -41,11 +41,12 @@ function MovieInfo() {
     }
 
     function handleSubmit(e) {
+        setCurrentPage(1);
         e.preventDefault();
         var blankArr = [];
 
         async function fetchMyAPI() {
-           setCurrentPage(1);
+
            const searchParam = encodeURIComponent(query);
            setQThrow(searchParam);
 
@@ -102,44 +103,62 @@ function MovieInfo() {
     }
 
     function handleNext() {
+        var blankArr = [];
         async function fetchMyAPI() {
-            const apiUrl = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${qThrow}&r=json&type=movie&page=${nextPage}`;
-            console.log(apiUrl);
-            let response = await fetch(apiUrl);
-            if (response.ok) {
-                if (show10) {
-                    response = await response.json();
-                    console.log(response.Search);
-                    setMovies(response.Search);
-                    setPrevPage(currentPage);
-                    setCurrentPage(nextPage);
-                    setNextPage(nextPage + 1);
-                    const apiUrl2 = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${qThrow}&r=json&type=movie&page=${prevPage}`;
-                    let response2 = await fetch(apiUrl2);
-                    if (response2.ok) {
-                        setPrevExists(true);
-                    }
-                }
-                if (show20) {
-                 response = await response.json();
-                 console.log(response.Search);
-                 setMovies(response.Search);
-                 var temp = currentPage + 1;
-                 setPrevPage(currentPage);
-                 setCurrentPage(currentPage + 2);
-                 setNextPage(nextPage + 4);
-                 const apiUrl2 = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${qThrow}&r=json&type=movie&page=${prevPage}`;
-                 let response2 = await fetch(apiUrl2);
-                 if (response2.ok) {
-                    setPrevExists(true);
-                 }
-                 const apiUrl3 = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${qThrow}&r=json&type=movie&page=${temp}`;
-                 let response3 = await fetch(apiUrl3);
-                 const arr = movies.concat(response3.Search);
-                 console.log(arr);
-                 setMovies(arr);
+            const apiUrl1 = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${qThrow}&r=json&type=movie&page=${nextPage}`;
+            const apiUrl2 = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${qThrow}&r=json&type=movie&page=${nextPage + 1}`;
+            const apiUrl3 = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${qThrow}&r=json&type=movie&page=${nextPage + 2}`;
+            const apiUrl0 = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${qThrow}&r=json&type=movie&page=${prevPage}`;
 
-                    }
+            let response0 = await fetch(apiUrl0);
+            let response = await fetch(apiUrl1);
+            let response2 = await fetch(apiUrl2);
+            let response3 = await fetch(apiUrl3);
+
+            if (response0.ok) {
+                setPrevExists(true);
+                }
+
+            if (response.ok && show10) {
+                response = await response.json();
+                console.log(apiUrl1);
+                console.log(response.Search);
+                const arr = blankArr.concat(response.Search);
+                setMovies(arr);
+                setPrevPage(currentPage);
+                setCurrentPage(nextPage);
+                setNextPage(nextPage + 1);
+                }
+            if (response2.ok && show20) {
+                response = await response.json();
+                response2 = await response2.json();
+                console.log(apiUrl1);
+                console.log(response.Search);
+                console.log(apiUrl2);
+                console.log(response2.Search);
+                const arr = blankArr.concat(response.Search, response2.Search);
+                console.log(arr);
+                setMovies(arr);
+                setPrevPage(currentPage);
+                setCurrentPage(nextPage + 1);
+                setNextPage(nextPage + 2);
+                }
+            if (show30 && response3.ok) {
+                console.log(apiUrl1);
+                console.log(apiUrl2);
+                console.log(apiUrl3);
+                response = await response.json();
+                response2 = await response2.json();
+                response3 = await response3.json();
+                console.log(response.Search);
+                console.log(response2.Search);
+                console.log(response3.Search);
+                const arr = blankArr.concat(response.Search, response2.Search, response3.Search);
+                console.log(arr);
+                setMovies(arr);
+                setPrevPage(currentPage);
+                setCurrentPage(nextPage + 2);
+                setNextPage(nextPage + 3);
             }
         }
         fetchMyAPI();
