@@ -25,7 +25,7 @@ function App() {
         </p>
             <MovieInfo></MovieInfo>
       </body>
-        <Footer title = "Created by Amy Ma for the Capital Group's consideration">
+        <Footer title = "Contact">
         </Footer>
     </div>
   );
